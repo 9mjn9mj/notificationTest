@@ -31,14 +31,18 @@ jobs:
           key: gradle-${{ runner.os }}-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
           restore-keys: gradle-${{ runner.os }}
 
-      - name: Gradle 실행 권한 부여
+      - name: Gradle Wrapper 다운로드 (필요한 경우)
+        run: |
+          if [ ! -f gradlew ]; then
+            echo "gradlew 파일이 없습니다. Gradle Wrapper를 다시 생성합니다."
+            ./gradlew wrapper
+          fi
+
+      - name: Gradlew 실행 권한 부여
         run: chmod +x gradlew
 
       - name: Debug APK 빌드
         run: ./gradlew assembleDebug
 
       - name: 빌드된 APK 업로드
-        uses: actions/upload-artifact@v4  # v4로 업데이트
-        with:
-          name: app-debug-apk
-          path: app/build/outputs/apk/debug/app-debug.apk
+        use
