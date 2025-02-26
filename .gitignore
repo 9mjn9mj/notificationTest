@@ -1,0 +1,11 @@
+# Gradle 빌드 폴더
+/build/
+# 로컬 설정 파일
+/local.properties
+# IDE 관련 폴더
+/.idea/
+/*.iml
+# 캐시 및 로그 파일
+/.gradle/
+/captures/
+/*.log
