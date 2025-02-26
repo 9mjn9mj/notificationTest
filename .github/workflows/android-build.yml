@@ -38,7 +38,7 @@ jobs:
         run: ./gradlew assembleDebug
 
       - name: 빌드된 APK 업로드
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4  # v4로 업데이트
         with:
           name: app-debug-apk
           path: app/build/outputs/apk/debug/app-debug.apk
